@@ -33,21 +33,60 @@
       height: 40px;
     }
 
-    /* Hero Banner */
-    .banner {
-      width: 100%;
-      height: 400px;
-      background: url('slide-1.png') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    /* Hero + Slider Block */
+    .hero-slider {
+      margin-top: 80px; /* Push below fixed top banner */
+      background: rgba(75, 0, 130, 0.8); /* Same purple background */
       color: white;
-      font-size: 36px;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-      margin-top: 80px; /* so content doesn't hide under fixed banner */
+      text-align: center;
+      padding: 20px 0;
     }
 
+    .hero-slider h1 {
+      font-size: 48px;
+      margin: 0 0 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+
+    /* Slider Section */
+    .slider {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      width: 1000%;
+      animation: slide 50s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      10%  { transform: translateX(0); }
+      15%  { transform: translateX(-100%); }
+      20%  { transform: translateX(-200%); }
+      30%  { transform: translateX(-300%); }
+      40%  { transform: translateX(-400%); }
+      50%  { transform: translateX(-500%); }
+      60%  { transform: translateX(-600%); }
+      70%  { transform: translateX(-700%); }
+      80%  { transform: translateX(-800%); }
+      90%  { transform: translateX(-900%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* About Bhojpur */
     h2 {
       text-align: center;
       color: #4B0082;
@@ -55,39 +94,6 @@
       font-size: 26px;
     }
 
-    /* Slider Section */
-    .slider {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      margin: 30px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .slides {
-  display: flex;
-  width: 1000%;
-  animation: slide 50s infinite
-}
-
-@keyframes slide {
-  0%   { transform: translateX(0); }
-  10%  { transform: translateX(0); }
-  15%  { transform: translateX(-100%); }
-  20%  { transform: translateX(-200%); }
-  30%  { transform: translateX(-300%); }
-  40%  { transform: translateX(-400%); }
-  50%  { transform: translateX(-500%); }
-  60%  { transform: translateX(-600%); }
-  70%  { transform: translateX(-700%); }
-  80%  { transform: translateX(-800%); }
-  90%  { transform: translateX(-900%); }
-  100% { transform: translateX(0); }
-}
-
-    /* About Bhojpur */
     p {
       max-width: 800px;
       margin: 0 auto;
@@ -160,26 +166,26 @@
     </div>
   </div>
 
-  <div class="banner">
-    Bhojpur
-  <div class="slider">
-    <div class="slides">
-      <img src="slide-1.jpg" alt="Slide 1">
-      <img src="slide-2.jpg" alt="Slide 2">
-      <img src="slide-3.jpg" alt="Slide 3">
-      <img src="slide-4.jpg" alt="Slide 4">
-      <img src="slide-5.jpg" alt="Slide 5">
-      <img src="slide-6.jpg" alt="Slide 6">
-      <img src="slide-7.jpg" alt="Slide 7">
-      <img src="slide-8.jpg" alt="Slide 8">
-      <img src="slide-9.jpg" alt="Slide 9">
-      <img src="slide-10.jpg" alt="Slide 10">
+  <!-- Hero + Slider Block -->
+  <div class="hero-slider">
+    <h1>Bhojpur</h1>
+    <div class="slider">
+      <div class="slides">
+        <img src="slide-1.jpg" alt="Slide 1">
+        <img src="slide-2.jpg" alt="Slide 2">
+        <img src="slide-3.jpg" alt="Slide 3">
+        <img src="slide-4.jpg" alt="Slide 4">
+        <img src="slide-5.jpg" alt="Slide 5">
+        <img src="slide-6.jpg" alt="Slide 6">
+        <img src="slide-7.jpg" alt="Slide 7">
+        <img src="slide-8.jpg" alt="Slide 8">
+        <img src="slide-9.jpg" alt="Slide 9">
+        <img src="slide-10.jpg" alt="Slide 10">
+      </div>
     </div>
   </div>
- <div>
 
-  <h2>Bhojpur</h2>
-
+  <!-- About Section -->
   <h2>ABOUT DISTRICT</h2>
   <p>
     The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. 
@@ -190,6 +196,7 @@
   </p>
   <button>Read More</button>
 
+  <!-- Links Section -->
   <div class="section-title">Important Links</div>
   <ul>
     <li class="highlight">
