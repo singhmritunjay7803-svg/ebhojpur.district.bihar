@@ -51,7 +51,7 @@
     position: relative;
     width: 100%;
     max-width: 1000px;
-    height: 250px;        /* fixed height */
+    height: 250px;
     margin: 0 auto 30px;
     overflow: hidden;
     border-radius: 10px;
@@ -66,7 +66,7 @@
   .slides img {
     width: 100%;
     flex-shrink: 0;
-    object-fit: contain;   /* show full image without cropping */
+    object-fit: contain;
     height: 100%;
   }
 
@@ -137,6 +137,121 @@
   button:hover {
     background: #360061;
   }
+
+  /* === INFOGRAPHIC STYLES === */
+  .infographic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 40px;
+    margin: 60px auto;
+    flex-wrap: wrap;
+  }
+
+  .center-circle {
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+  }
+
+  .sides {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 280px;
+    position: relative;
+  }
+
+  .item.left {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .item-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .item-content {
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 1;
+  }
+
+  .item-content h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .item-content p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #fff;
+  }
+
+  /* COLORS */
+  .c1 { background: #795548; }
+  .c2 { background: #03a9f4; }
+  .c3 { background: #e74c3c; }
+  .c4 { background: #795548; }
+  .c5 { background: #03a9f4; }
+  .c6 { background: #e74c3c; }
+
+  .c1 + .item-content { background: #795548; }
+  .c2 + .item-content { background: #03a9f4; }
+  .c3 + .item-content { background: #e74c3c; }
+  .c4 + .item-content { background: #795548; }
+  .c5 + .item-content { background: #03a9f4; }
+  .c6 + .item-content { background: #e74c3c; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .infographic {
+      flex-direction: column;
+      gap: 60px;
+    }
+    .sides {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .item.left {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
 </style>
 </head>
 <body>
@@ -179,6 +294,61 @@
   and also its principal town.
 </p>
 <button>Read More</button>
+
+<!-- Infographic Section -->
+<div class="infographic">
+  <div class="sides">
+    <div class="item left">
+      <div class="item-circle c1">👋</div>
+      <div class="item-content">
+        <h3>INFODATA 01</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <div class="item left">
+      <div class="item-circle c2">🧠</div>
+      <div class="item-content">
+        <h3>INFODATA 02</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <div class="item left">
+      <div class="item-circle c3">💡</div>
+      <div class="item-content">
+        <h3>INFODATA 03</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-circle">
+    CREATIVE <br> INFOGRAPHIC
+  </div>
+
+  <div class="sides">
+    <div class="item">
+      <div class="item-circle c4">🎯</div>
+      <div class="item-content">
+        <h3>INFODATA 04</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-circle c5">🐑</div>
+      <div class="item-content">
+        <h3>INFODATA 05</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-circle c6">📊</div>
+      <div class="item-content">
+        <h3>INFODATA 06</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Links Section -->
 <div class="section-title">Important Links</div>
