@@ -29,7 +29,7 @@
 
     .banner {
       width: 100%;
-      height: 768px;
+      height: 400px;
       background: url('slide-1.png') center/cover no-repeat;
       display: flex;
       justify-content: center;
@@ -38,6 +38,7 @@
       font-size: 36px;
       font-weight: bold;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      margin-top: 80px; /* so content doesn't hide under fixed banner */
     }
 
     h2 {
@@ -45,19 +46,51 @@
       color: #4B0082;
       margin: 30px 0 20px;
       font-size: 26px;
+    }
 
-    <title>About Bhojpur District</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h2 { font-size: 1.7em; margin-bottom: 0.5em; }
-        .section-title { font-weight: bold; font-size: 1.3em; margin-top: 2em; }
-        .highlight { color: #d32f2f; font-weight: bold; }
-        .link-red { color: #d32f2f; text-decoration: none; font-weight: bold; }
-        .link-blue { color: #007bff; text-decoration: underline; }
-        .whats-new-title { font-weight: bold; font-size: 1.1em; margin-top: 2em;}
-        ul { margin-left: 1em; }
-        li { margin-top: 7px;}
-    </style>
+    /* About Bhojpur styling */
+    .section-title {
+      font-weight: bold;
+      font-size: 1.3em;
+      margin-top: 2em;
+    }
+    .highlight {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    .link-red {
+      color: #d32f2f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .link-blue {
+      color: #007bff;
+      text-decoration: underline;
+    }
+    .whats-new-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-top: 2em;
+    }
+    ul {
+      margin-left: 1em;
+    }
+    li {
+      margin-top: 7px;
+    }
+    button {
+      background: #4B0082;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #360061;
+    }
+  </style>
 </head>
 <body>
 
@@ -77,29 +110,32 @@
 
   <h2>DISTRICTS OF BIHAR</h2>
 
-    <h2>ABOUT DISTRICT</h2>
-    <p>
-    The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. Buxar was a subdivision of old Bhojpur district. In 1992, Buxar became a separate district and rest of Bhojpur district has now three sub-divisions – Ara Sadar, Jagdishpur and Piro. Ara town is the headquarters of the district and also its principal town.
-    </p>
-    <button>Read More</button>
+  <h2>ABOUT DISTRICT</h2>
+  <p>
+    The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. 
+    In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. 
+    Buxar was a subdivision of old Bhojpur district. In 1992, Buxar became a separate district and rest of Bhojpur 
+    district has now three sub-divisions – Ara Sadar, Jagdishpur and Piro. Ara town is the headquarters of the district 
+    and also its principal town.
+  </p>
+  <button>Read More</button>
 
-    <div class="section-title"></div>
-    <ul>
-        <li class="highlight">
-            Restricted Plot Ara Bhojpur,
-            <a href="#" class="link-blue">Click Here</a>
-        </li>
-        <li>
-            <span class="highlight">BLO List</span>
-            <a href="#" class="link-blue">Click Here</a>
-        </li>
-        <li>
-            <span class="highlight">Download Employee Information Form</span>
-            and
-            <a href="#" class="link-red">Office Performa - 1</a>
-            <a href="#" class="link-red">Employee Performa - 2</a>
-        </li>
-    </ul>
+  <div class="section-title">Important Links</div>
+  <ul>
+    <li class="highlight">
+      Restricted Plot Ara Bhojpur,
+      <a href="#" class="link-blue">Click Here</a>
+    </li>
+    <li>
+      <span class="highlight">BLO List</span>
+      <a href="#" class="link-blue">Click Here</a>
+    </li>
+    <li>
+      <span class="highlight">Download Employee Information Form</span> and
+      <a href="#" class="link-red">Office Performa - 1</a>
+      <a href="#" class="link-red">Employee Performa - 2</a>
+    </li>
+  </ul>
+
 </body>
 </html>
-
