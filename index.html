@@ -33,19 +33,17 @@
       height: 40px;
     }
 
-    /* Hero + Slider Block */
-    .hero-slider {
-      margin-top: 80px; /* Push below fixed top banner */
-      background: rgba(75, 0, 130, 0.8); /* Same purple background */
-      color: white;
+    /* Hero Heading */
+    .hero {
+      margin-top: 100px; /* pushes below fixed banner */
       text-align: center;
-      padding: 20px 0;
     }
 
-    .hero-slider h1 {
+    .hero h1 {
       font-size: 48px;
-      margin: 0 0 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+      color: #4B0082;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
 
     /* Slider Section */
@@ -53,7 +51,7 @@
       position: relative;
       width: 90%;
       max-width: 1000px;
-      margin: 0 auto;
+      margin: 0 auto 30px;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -62,7 +60,7 @@
     .slides {
       display: flex;
       width: 1000%;
-      animation: slide 50s infinite;
+      animation: slide 200s infinite;
     }
 
     .slides img {
@@ -166,8 +164,8 @@
     </div>
   </div>
 
-  <!-- Hero + Slider Block -->
-  <div class="hero-slider">
+  <!-- Hero + Slider -->
+  <div class="hero">
     <h1>Bhojpur</h1>
     <div class="slider">
       <div class="slides">
