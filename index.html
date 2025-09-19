@@ -1,218 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BHOJPUR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-    }
+<meta charset="UTF-8">
+<title>BHOJPUR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+  }
 
-    /* Top Banner */
-    .top-banner {
-      background-color: rgba(75, 0, 130, 0.8);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+  /* Top Banner */
+  .top-banner {
+    background-color: rgba(75, 0, 130, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
 
-    .top-banner img {
-      height: 60px;
-    }
-    .top-banner div img {
-      margin-left: 10px;
-      height: 40px;
-    }
+  .top-banner img {
+    height: 60px;
+  }
+  .top-banner div img {
+    margin-left: 10px;
+    height: 40px;
+  }
 
-    /* Hero Heading */
-    .hero {
-      margin-top: 100px;
-      text-align: center;
-    }
+  /* Hero Heading */
+  .hero {
+    margin-top: 100px;
+    text-align: center;
+  }
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: #4B0082;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #4B0082;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 
-    /* Slider Section */
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 768px; 
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+  /* Slider Section */
+  .slider {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 250px;        /* fixed height */
+    margin: 0 auto 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
 
-    .slides {
-      display: flex;
-      width: 1000%;
-      animation: slide 20s steps(10);
-    }
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
 
-    .slides img {
-      width: 10%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+  .slides img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;   /* show full image without cropping */
+    height: 100%;
+  }
 
-    @keyframes slide {
-      0%   { transform: translateX(0); }
-      10%  { transform: translateX(0); }
-      15%  { transform: translateX(-100%); }
-      20%  { transform: translateX(-200%); }
-      30%  { transform: translateX(-300%); }
-      40%  { transform: translateX(-400%); }
-      50%  { transform: translateX(-500%); }
-      60%  { transform: translateX(-600%); }
-      70%  { transform: translateX(-700%); }
-      80%  { transform: translateX(-800%); }
-      90%  { transform: translateX(-900%); }
-      100% { transform: translateX(0); }
-    }
+  /* About Bhojpur */
+  h2 {
+    text-align: center;
+    color: #4B0082;
+    margin: 30px 0 20px;
+    font-size: 26px;
+  }
 
-    /* About Bhojpur */
-    h2 {
-      text-align: center;
-      color: #4B0082;
-      margin: 30px 0 20px;
-      font-size: 26px;
-    }
+  p {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+  }
 
-    p {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
+  .section-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 2em;
+    text-align: center;
+  }
 
-    .section-title {
-      font-weight: bold;
-      font-size: 1.3em;
-      margin-top: 2em;
-      text-align: center;
-    }
+  .highlight {
+    color: #d32f2f;
+    font-weight: bold;
+  }
 
-    .highlight {
-      color: #d32f2f;
-      font-weight: bold;
-    }
+  .link-red {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    .link-red {
-      color: #d32f2f;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  .link-blue {
+    color: #007bff;
+    text-decoration: underline;
+  }
 
-    .link-blue {
-      color: #007bff;
-      text-decoration: underline;
-    }
+  ul {
+    list-style-type: none;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
 
-    ul {
-      list-style-type: none;
-      padding: 20px;
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+  ul li {
+    margin: 10px 0;
+  }
 
-    ul li {
-      margin: 10px 0;
-    }
+  button {
+    background: #4B0082;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+  }
 
-    button {
-      background: #4B0082;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-    }
-
-    button:hover {
-      background: #360061;
-    }
-  </style>
+  button:hover {
+    background: #360061;
+  }
+</style>
 </head>
 <body>
 
-  <!-- Top Banner -->
-  <div class="top-banner">
-    <img src="bihar_logo.png" alt="Bihar Logo">
-    <div>
-      <img src="swaas_logo.png" alt="Swaas Logo">
-      <img src="digital_india_logo.png" alt="Digital India Logo">
+<!-- Top Banner -->
+<div class="top-banner">
+  <img src="bihar_logo.png" alt="Bihar Logo">
+  <div>
+    <img src="swaas_logo.png" alt="Swaas Logo">
+    <img src="digital_india_logo.png" alt="Digital India Logo">
+  </div>
+</div>
+
+<!-- Hero + Slider -->
+<div class="hero">
+  <h1>Bhojpur</h1>
+  <div class="slider">
+    <div class="slides">
+      <img src="slide-1.jpg" alt="Slide 1">
+      <img src="slide-2.jpg" alt="Slide 2">
+      <img src="slide-3.jpg" alt="Slide 3">
+      <img src="slide-4.jpg" alt="Slide 4">
+      <img src="slide-5.jpg" alt="Slide 5">
+      <img src="slide-6.jpg" alt="Slide 6">
+      <img src="slide-7.jpg" alt="Slide 7">
+      <img src="slide-8.jpg" alt="Slide 8">
+      <img src="slide-9.jpg" alt="Slide 9">
+      <img src="slide-10.jpg" alt="Slide 10">
     </div>
   </div>
+</div>
 
-  <!-- Hero + Slider -->
-  <div class="hero">
-    <h1>Bhojpur</h1>
-    <div class="slider">
-      <div class="slides">
-        <img src="slide-1.jpg" alt="Slide 1">
-        <img src="slide-2.jpg" alt="Slide 2">
-        <img src="slide-3.jpg" alt="Slide 3">
-        <img src="slide-4.jpg" alt="Slide 4">
-        <img src="slide-5.jpg" alt="Slide 5">
-        <img src="slide-6.jpg" alt="Slide 6">
-        <img src="slide-7.jpg" alt="Slide 7">
-        <img src="slide-8.jpg" alt="Slide 8">
-        <img src="slide-9.jpg" alt="Slide 9">
-        <img src="slide-10.jpg" alt="Slide 10">
-      </div>
-    </div>
-  </div>
+<!-- About Section -->
+<h2>ABOUT DISTRICT</h2>
+<p>
+  The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. 
+  In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. 
+  Buxar was a subdivision of old Bhojpur district. In 1992, Buxar became a separate district and rest of Bhojpur 
+  district has now three sub-divisions – Ara Sadar, Jagdishpur and Piro. Ara town is the headquarters of the district 
+  and also its principal town.
+</p>
+<button>Read More</button>
 
-  <!-- About Section -->
-  <h2>ABOUT DISTRICT</h2>
-  <p>
-    The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. 
-    In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. 
-    Buxar was a subdivision of old Bhojpur district. In 1992, Buxar became a separate district and rest of Bhojpur 
-    district has now three sub-divisions – Ara Sadar, Jagdishpur and Piro. Ara town is the headquarters of the district 
-    and also its principal town.
-  </p>
-  <button>Read More</button>
+<!-- Links Section -->
+<div class="section-title">Important Links</div>
+<ul>
+  <li class="highlight">
+    Restricted Plot Ara Bhojpur,
+    <a href="#" class="link-blue">Click Here</a>
+  </li>
+  <li>
+    <span class="highlight">BLO List</span>
+    <a href="#" class="link-blue">Click Here</a>
+  </li>
+  <li>
+    <span class="highlight">Download Employee Information Form</span> and
+    <a href="#" class="link-red">Office Performa - 1</a>
+    <a href="#" class="link-red">Employee Performa - 2</a>
+  </li>
+</ul>
 
-  <!-- Links Section -->
-  <div class="section-title">Important Links</div>
-  <ul>
-    <li class="highlight">
-      Restricted Plot Ara Bhojpur,
-      <a href="#" class="link-blue">Click Here</a>
-    </li>
-    <li>
-      <span class="highlight">BLO List</span>
-      <a href="#" class="link-blue">Click Here</a>
-    </li>
-    <li>
-      <span class="highlight">Download Employee Information Form</span> and
-      <a href="#" class="link-red">Office Performa - 1</a>
-      <a href="#" class="link-red">Employee Performa - 2</a>
-    </li>
-  </ul>
+<!-- Slider JS -->
+<script>
+const slider = document.querySelector('.slider');
+const slides = document.querySelector('.slides');
+const totalSlides = slides.children.length;
+let currentIndex = 0;
+
+// Auto-slide every 3 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  slides.style.transition = 'transform 0.5s ease';
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}, 3000);
+
+// Hand swipe support
+let startX = 0;
+let isDragging = false;
+
+slider.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+  slides.style.transition = '';
+});
+
+slider.addEventListener('touchmove', e => {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diff = currentX - startX;
+  slides.style.transform = `translateX(${ -currentIndex * 100 + diff / slider.offsetWidth * 100 }%)`;
+});
+
+slider.addEventListener('touchend', e => {
+  isDragging = false;
+  const endX = e.changedTouches[0].clientX;
+  const diff = endX - startX;
+
+  if (diff > 50 && currentIndex > 0) {
+    currentIndex--;
+  } else if (diff < -50 && currentIndex < totalSlides - 1) {
+    currentIndex++;
+  }
+
+  slides.style.transition = 'transform 0.5s ease';
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+});
+</script>
 
 </body>
 </html>
