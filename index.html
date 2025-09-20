@@ -1,419 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>BHOJPUR</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BHOJPUR — with Infographic</title>
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
+  :root{
+    --center-size: 240px;
+    --node-size: 72px;
+    --pill-width: 340px;
+    --gap-vertical: 28px;
   }
 
-  /* Top Banner */
-  .top-banner {
-    background-color: rgba(75, 0, 130, 0.8);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f6f7f9;
+    color:#222;
+  }
+
+  /* ---------- Top Banner ---------- */
+  .top-banner{
+    background: rgba(75,0,130,0.9);
+    color: #fff;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    top:0; left:0; right:0;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 18px; z-index:1100;
   }
+  .top-banner img{ height:56px; display:inline-block; }
+  .top-banner .logos img{ height:40px; margin-left:10px; vertical-align:middle; }
 
-  .top-banner img {
-    height: 60px;
-  }
-  .top-banner div img {
-    margin-left: 10px;
-    height: 40px;
-  }
-
-  /* Hero Heading */
-  .hero {
-    margin-top: 100px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #4B0082;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-
-  /* Slider Section */
-  .slider {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    height: 250px;
-    margin: 0 auto 30px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-
-  .slides img {
-    width: 100%;
-    flex-shrink: 0;
-    object-fit: contain;
-    height: 100%;
-  }
-
-  /* About Bhojpur */
-  h2 {
-    text-align: center;
-    color: #4B0082;
-    margin: 30px 0 20px;
-    font-size: 26px;
-  }
-
-  p {
-    max-width: 800px;
+  /* ---------- Page layout ---------- */
+  .page {
+    padding: 110px 18px 60px;
+    max-width:1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    line-height: 1.6;
   }
 
-  .section-title {
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-top: 2em;
-    text-align: center;
+  .hero { text-align:center; margin-bottom: 18px; }
+  .hero h1 {
+    margin:0;
+    color: #4B0082;
+    font-size:42px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.08);
   }
 
-  .highlight {
-    color: #d32f2f;
-    font-weight: bold;
+  /* ---------- Slider (kept from your original) ---------- */
+  .slider { margin:18px auto 30px; width:100%; max-width:1000px; height:250px; border-radius:10px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.08); background:#fff; }
+  .slides { display:flex; height:100%; transition:transform .5s ease; }
+  .slides img { width:100%; object-fit:cover; flex-shrink:0; height:100%; }
+
+  h2 { text-align:center; color:#4B0082; margin:34px 0 10px; font-size:24px; }
+  p { max-width:900px; margin:0 auto; padding:0 12px; line-height:1.6; }
+
+  button { display:block; margin:18px auto; background:#4B0082; color:#fff; border:0; padding:10px 18px; border-radius:6px; cursor:pointer; }
+
+  /* ---------- INFOGRAPHIC (New, matches reference) ---------- */
+  .infographic-wrap {
+    position:relative;
+    margin:48px auto;
+    width:100%;
+    max-width:1100px;
+    height:520px;              /* overall height for layout */
+    display:block;
   }
 
-  .link-red {
-    color: #d32f2f;
-    text-decoration: none;
-    font-weight: bold;
+  /* SVG overlay for connectors */
+  .infographic-wrap svg.connectors {
+    position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:5;
   }
 
-  .link-blue {
-    color: #007bff;
-    text-decoration: underline;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  ul li {
-    margin: 10px 0;
-  }
-
-  button {
-    background: #4B0082;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-  }
-
-  button:hover {
-    background: #360061;
-  }
-
-  /* === INFOGRAPHIC STYLES === */
   .infographic {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    gap: 40px;
-    margin: 60px auto;
-    flex-wrap: wrap;
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr var(--center-size) 1fr;
+    align-items:center;
+    height:100%;
+    gap:20px;
+    z-index:10;
   }
 
-  .center-circle {
-    width: 220px;
-    height: 220px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 20px;
+  /* center circle / hub */
+  .center-col { display:flex; align-items:center; justify-content:center; height:100%; }
+  .center-circle{
+    width:var(--center-size);
+    height:var(--center-size);
+    background:linear-gradient(#fff,#fbfbfb);
+    border-radius:50%;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:18px; font-weight:700; color:#333;
+    font-size:18px;
   }
 
-  .sides {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  /* left & right columns */
+  .col {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height: calc(100% - 20px);
+    padding:10px;
+    box-sizing:border-box;
   }
 
+  /* an item: pill + node */
   .item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    max-width: 280px;
-    position: relative;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    /* each item block gets same vertical spacing automatically through column space-between */
   }
 
-  .item.left {
-    flex-direction: row-reverse;
-    text-align: right;
+  /* Left items: pill then node (node near center), visually pill extends leftwards */
+  .left .item { flex-direction:row-reverse; justify-content:flex-end; }
+  .right .item { flex-direction:row; justify-content:flex-start; }
+
+  /* pill box */
+  .pill {
+    width:var(--pill-width);
+    border-radius:40px;
+    padding:18px 22px;
+    color:#fff;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    font-size:13px;
+  }
+  .pill h3 { margin:0 0 6px 0; font-size:15px; font-weight:700; color:inherit; }
+  .pill p { margin:0; color:inherit; opacity:0.95; font-size:12px; }
+
+  /* node (small round icon) */
+  .node {
+    width:var(--node-size);
+    height:var(--node-size);
+    min-width:var(--node-size);
+    border-radius:50%;
+    background:#fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    z-index:12;
+  }
+  .node .inner {
+    width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    color:#fff;
   }
 
-  .item-circle {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 2;
+  /* colors: match reference (brown, cyan, orange/red) */
+  .c-brown { background:#7f5a54; }
+  .c-cyan { background:#08bcd9; }
+  .c-red  { background:#ff4b2b; }
+
+  /* apply to pill backgrounds */
+  .c-brown .inner { background:#7f5a54; }
+  .c-cyan  .inner { background:#08bcd9; }
+  .c-red   .inner { background:#ff4b2b; }
+
+  .pill.c-brown { background:#7f5a54; }
+  .pill.c-cyan  { background:#08bcd9; }
+  .pill.c-red   { background:#ff4b2b; }
+
+  /* tiny marker circle where connector attaches to center / node (drawn in SVG, but ensure z-index) */
+  /* responsive */
+  @media (max-width:1000px){
+    .infographic-wrap{ height:auto; }
+    .infographic{ grid-template-columns: 1fr auto 1fr; grid-auto-rows:auto; align-items:start; gap:12px; padding:18px 0; }
+    .center-circle{ margin: 18px auto; width:200px; height:200px; }
+    .col{ justify-content:flex-start; gap:14px; height:auto; }
+    .pill{ width:70vw; max-width:320px; }
+    .infographic-wrap svg.connectors{ display:block; height: calc(100% + 200px); } /* larger so lines still draw */
   }
 
-  .item-content {
-    background: #fff;
-    padding: 12px 18px;
-    border-radius: 40px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    flex: 1;
-  }
-
-  .item-content h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .item-content p {
-    margin: 5px 0 0;
-    font-size: 13px;
-    color: #fff;
-  }
-
-  /* COLORS */
-  .c1 { background: #795548; }
-  .c2 { background: #03a9f4; }
-  .c3 { background: #e74c3c; }
-  .c4 { background: #795548; }
-  .c5 { background: #03a9f4; }
-  .c6 { background: #e74c3c; }
-
-  .c1 + .item-content { background: #795548; }
-  .c2 + .item-content { background: #03a9f4; }
-  .c3 + .item-content { background: #e74c3c; }
-  .c4 + .item-content { background: #795548; }
-  .c5 + .item-content { background: #03a9f4; }
-  .c6 + .item-content { background: #e74c3c; }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .infographic {
-      flex-direction: column;
-      gap: 60px;
-    }
-    .sides {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .item.left {
-      flex-direction: row;
-      text-align: left;
-    }
-  }
+  /* Links box */
+  .links { margin-top:28px; max-width:900px; margin-left:auto; margin-right:auto; }
+  .links ul{ list-style:none; padding:18px; background:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.05); }
+  .links li{ padding:8px 0; }
+  .link-blue{ color:#007bff; text-decoration:underline; }
+  .highlight{ color:#d32f2f; font-weight:700; }
 </style>
 </head>
 <body>
 
-<!-- Top Banner -->
-<div class="top-banner">
-  <img src="bihar_logo.png" alt="Bihar Logo">
-  <div>
-    <img src="swaas_logo.png" alt="Swaas Logo">
-    <img src="digital_india_logo.png" alt="Digital India Logo">
-  </div>
-</div>
-
-<!-- Hero + Slider -->
-<div class="hero">
-  <h1>Bhojpur</h1>
-  <div class="slider">
-    <div class="slides">
-      <img src="slide-1.jpg" alt="Slide 1">
-      <img src="slide-2.jpg" alt="Slide 2">
-      <img src="slide-3.jpg" alt="Slide 3">
-      <img src="slide-4.jpg" alt="Slide 4">
-      <img src="slide-5.jpg" alt="Slide 5">
-      <img src="slide-6.jpg" alt="Slide 6">
-      <img src="slide-7.jpg" alt="Slide 7">
-      <img src="slide-8.jpg" alt="Slide 8">
-      <img src="slide-9.jpg" alt="Slide 9">
-      <img src="slide-10.jpg" alt="Slide 10">
-    </div>
-  </div>
-</div>
-
-<!-- About Section -->
-<h2>ABOUT DISTRICT</h2>
-<p>
-  The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district. 
-  In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. 
-  Buxar was a subdivision of old Bhojpur district. In 1992, Buxar became a separate district and rest of Bhojpur 
-  district has now three sub-divisions – Ara Sadar, Jagdishpur and Piro. Ara town is the headquarters of the district 
-  and also its principal town.
-</p>
-<button>Read More</button>
-
-<!-- Infographic Section -->
-<div class="infographic">
-  <div class="sides">
-    <div class="item left">
-      <div class="item-circle c1">👋</div>
-      <div class="item-content">
-        <h3>INFODATA 01</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-    <div class="item left">
-      <div class="item-circle c2">🧠</div>
-      <div class="item-content">
-        <h3>INFODATA 02</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-    <div class="item left">
-      <div class="item-circle c3">💡</div>
-      <div class="item-content">
-        <h3>INFODATA 03</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
+  <!-- Top banner -->
+  <div class="top-banner">
+    <img src="bihar_logo.png" alt="Bihar Logo" />
+    <div class="logos">
+      <img src="swaas_logo.png" alt="Swaas" />
+      <img src="digital_india_logo.png" alt="Digital India" />
     </div>
   </div>
 
-  <div class="center-circle">
-    CREATIVE <br> INFOGRAPHIC
+  <div class="page">
+    <div class="hero">
+      <h1>Bhojpur</h1>
+    </div>
+
+    <div class="slider" aria-hidden="true">
+      <div class="slides">
+        <!-- Replace slides with your images -->
+        <img src="slide-1.jpg" alt="Slide 1" />
+        <img src="slide-2.jpg" alt="Slide 2" />
+        <img src="slide-3.jpg" alt="Slide 3" />
+      </div>
+    </div>
+
+    <h2>ABOUT DISTRICT</h2>
+    <p>
+      The present Bhojpur came into existence in 1972. Earlier this district was part of old Shahabad district.
+      In the year 1972 Shahabad district was bifurcated in two parts, namely Bhojpur and Rohtas. Buxar was a subdivision...
+    </p>
+    <button>Read More</button>
+
+    <!-- ================= INFOGRAPHIC SECTION ================= -->
+    <div class="infographic-wrap" id="infographicWrap">
+      <!-- an svg layer used to draw connector curves and small dots -->
+      <svg class="connectors" id="connectors" xmlns="http://www.w3.org/2000/svg"></svg>
+
+      <div class="infographic">
+        <!-- LEFT Column -->
+        <div class="col left" id="leftCol">
+          <div class="item" data-id="1">
+            <div class="node c-brown" id="node-1"><div class="inner">🔧</div></div>
+            <div class="pill c-brown">
+              <h3>INFODATA 01</h3>
+              <p>Short description about infodata one with one or two lines.</p>
+            </div>
+          </div>
+
+          <div class="item" data-id="2">
+            <div class="node c-cyan" id="node-2"><div class="inner">🧠</div></div>
+            <div class="pill c-cyan">
+              <h3>INFODATA 02</h3>
+              <p>Short description about infodata two with one or two lines.</p>
+            </div>
+          </div>
+
+          <div class="item" data-id="3">
+            <div class="node c-red" id="node-3"><div class="inner">💡</div></div>
+            <div class="pill c-red">
+              <h3>INFODATA 03</h3>
+              <p>Short description about infodata three with one or two lines.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER -->
+        <div class="center-col">
+          <div class="center-circle" id="centerCircle">
+            CREATIVE<br>INFOGRAPHIC
+          </div>
+        </div>
+
+        <!-- RIGHT Column -->
+        <div class="col right" id="rightCol">
+          <div class="item" data-id="4">
+            <div class="pill c-brown">
+              <h3>INFODATA 04</h3>
+              <p>Short description about infodata four with one or two lines.</p>
+            </div>
+            <div class="node c-brown" id="node-4"><div class="inner">🎯</div></div>
+          </div>
+
+          <div class="item" data-id="5">
+            <div class="pill c-cyan">
+              <h3>INFODATA 05</h3>
+              <p>Short description about infodata five with one or two lines.</p>
+            </div>
+            <div class="node c-cyan" id="node-5"><div class="inner">🍼</div></div>
+          </div>
+
+          <div class="item" data-id="6">
+            <div class="pill c-red">
+              <h3>INFODATA 06</h3>
+              <p>Short description about infodata six with one or two lines.</p>
+            </div>
+            <div class="node c-red" id="node-6"><div class="inner">📈</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================= END INFOGRAPHIC ================= -->
+
+    <div class="links">
+      <div class="section-title">Important Links</div>
+      <ul>
+        <li class="highlight">Restricted Plot Ara Bhojpur, <a href="#" class="link-blue">Click Here</a></li>
+        <li><span class="highlight">BLO List</span> <a href="#" class="link-blue">Click Here</a></li>
+        <li><span class="highlight">Download Employee Information Form</span> and
+            <a href="#" class="link-blue">Office Performa - 1</a> <a href="#" class="link-blue">Employee Performa - 2</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="sides">
-    <div class="item">
-      <div class="item-circle c4">🎯</div>
-      <div class="item-content">
-        <h3>INFODATA 04</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="item-circle c5">🐑</div>
-      <div class="item-content">
-        <h3>INFODATA 05</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="item-circle c6">📊</div>
-      <div class="item-content">
-        <h3>INFODATA 06</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Links Section -->
-<div class="section-title">Important Links</div>
-<ul>
-  <li class="highlight">
-    Restricted Plot Ara Bhojpur,
-    <a href="#" class="link-blue">Click Here</a>
-  </li>
-  <li>
-    <span class="highlight">BLO List</span>
-    <a href="#" class="link-blue">Click Here</a>
-  </li>
-  <li>
-    <span class="highlight">Download Employee Information Form</span> and
-    <a href="#" class="link-red">Office Performa - 1</a>
-    <a href="#" class="link-red">Employee Performa - 2</a>
-  </li>
-</ul>
-
-<!-- Slider JS -->
 <script>
-const slider = document.querySelector('.slider');
-const slides = document.querySelector('.slides');
-const totalSlides = slides.children.length;
-let currentIndex = 0;
+/* ---------- slider logic (simple) ---------- */
+(function(){
+  const slides = document.querySelector('.slides');
+  const imgs = slides.children;
+  let idx = 0;
+  if (imgs.length === 0) return;
+  setInterval(() => {
+    idx = (idx + 1) % imgs.length;
+    slides.style.transform = `translateX(-${idx * 100}%)`;
+  }, 3000);
+})();
 
-// Auto-slide every 3 seconds
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % totalSlides;
-  slides.style.transition = 'transform 0.5s ease';
-  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}, 3000);
+/* ---------- draw curved connectors between center and nodes ---------- */
+(function drawConnections(){
+  const svg = document.getElementById('connectors');
+  const center = document.getElementById('centerCircle');
 
-// Hand swipe support
-let startX = 0;
-let isDragging = false;
+  function clearSvg(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
 
-slider.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-  isDragging = true;
-  slides.style.transition = '';
-});
-
-slider.addEventListener('touchmove', e => {
-  if (!isDragging) return;
-  const currentX = e.touches[0].clientX;
-  const diff = currentX - startX;
-  slides.style.transform = `translateX(${ -currentIndex * 100 + diff / slider.offsetWidth * 100 }%)`;
-});
-
-slider.addEventListener('touchend', e => {
-  isDragging = false;
-  const endX = e.changedTouches[0].clientX;
-  const diff = endX - startX;
-
-  if (diff > 50 && currentIndex > 0) {
-    currentIndex--;
-  } else if (diff < -50 && currentIndex < totalSlides - 1) {
-    currentIndex++;
+  function makePath(x1,y1,x2,y2, color){
+    // create a smooth cubic bezier from center to node
+    // control points set to give a gentle curve toward the side
+    const dx = Math.abs(x2 - x1);
+    const sign = x2 < x1 ? -1 : 1;
+    const cpOffset = Math.min(160, Math.max(60, dx / 2));
+    const cp1x = x1 + sign * cpOffset * 0.6;
+    const cp1y = y1;
+    const cp2x = x2 - sign * cpOffset * 0.6;
+    const cp2y = y2;
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', `M ${x1} ${y1} C ${cp1x} ${cp1y} ${cp2x} ${cp2y} ${x2} ${y2}`);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke','#bfc9cf');
+    path.setAttribute('stroke-width','2');
+    path.setAttribute('stroke-linecap','round');
+    path.setAttribute('stroke-linejoin','round');
+    svg.appendChild(path);
+    // small circle at node side
+    const circ = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circ.setAttribute('cx', x2);
+    circ.setAttribute('cy', y2);
+    circ.setAttribute('r', 4);
+    circ.setAttribute('fill', '#ffffff');
+    circ.setAttribute('stroke', '#bfc9cf');
+    circ.setAttribute('stroke-width','2');
+    svg.appendChild(circ);
+    // small circle at center side
+    const circ2 = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circ2.setAttribute('cx', x1);
+    circ2.setAttribute('cy', y1);
+    circ2.setAttribute('r', 4);
+    circ2.setAttribute('fill', '#ffffff');
+    circ2.setAttribute('stroke', '#bfc9cf');
+    circ2.setAttribute('stroke-width','2');
+    svg.appendChild(circ2);
   }
 
-  slides.style.transition = 'transform 0.5s ease';
-  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-});
-</script>
+  function update(){
+    clearSvg();
+    const rect = svg.getBoundingClientRect();
+    // center point of center circle relative to svg
+    const cRect = center.getBoundingClientRect();
+    const baseX = cRect.left + cRect.width/2 - rect.left;
+    const baseY = cRect.top + cRect.height/2 - rect.top;
 
+    // gather all nodes
+    const nodes = Array.from(document.querySelectorAll('.node'));
+    nodes.forEach(node => {
+      const nRect = node.getBoundingClientRect();
+      const nx = nRect.left + nRect.width/2 - rect.left;
+      const ny = nRect.top + nRect.height/2 - rect.top;
+      // draw path from center to node
+      makePath(baseX, baseY, nx, ny);
+    });
+  }
+
+  // redraw on load and resize and when fonts/images settle
+  window.addEventListener('load', update);
+  window.addEventListener('resize', update);
+  // Also update after a small delay (images/layout)
+  setTimeout(update, 500);
+  setTimeout(update, 1000);
+})();
+
+</script>
 </body>
 </html>
