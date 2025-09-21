@@ -46,7 +46,18 @@
   .about-district .corner-img.left { left: 0; }
   .about-district .corner-img.right { right: 0; }
 
-  
+  .links { margin-top:40px; }
+  .links .section-title { font-weight:bold; color:#4B0082; margin-bottom:10px; }
+  .links ul { list-style:none; padding:0; }
+  .links li { margin-bottom:8px; }
+  .highlight { font-weight:bold; }
+  .link-blue { color:#1a73e8; text-decoration:none; }
+  .link-blue:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+  <!-- Banner -->
   <div class="top-banner">
     <img src="bihar_state_emblem.png" alt="Bihar State Emblem" />
     <div class="logos">
@@ -55,123 +66,39 @@
     </div>
   </div>
 
+  <!-- Page Content -->
   <div class="page">
     <div class="heading">
       <h1>Bhojpur</h1>
     </div>
-
+    
+    <!-- Slider -->
     <div class="slider" aria-hidden="true">
       <div class="slides">
         <img src="slide-1.jpg" alt="Slide-1" />
         <img src="slide-2.jpg" alt="Slide-2" />
-        <img src="slide-3.jpg" alt="Slide-3" />
-        <img src="slide-4.jpg" alt="Slide-4" />
-        <img src="slide-5.jpg" alt="Slide-5" />
-        <img src="slide-6.jpg" alt="Slide-6" />
-        <img src="slide-7.jpg" alt="Slide-7" />
-        <img src="slide-8.jpg" alt="Slide-8" />
-        <img src="slide-9.jpg" alt="Slide-9" />
-        <img src="slide-10.jpg" alt="Slide-10" />
+        <!-- etc... -->
       </div>
     </div>
 
+    <!-- About District -->
     <div class="about-district">
       <h2>About District</h2>
       <p>
-        The present Bhojpur came into existence in 1972.Earlier this district was part of old Sahabad district.In the year 1972 Sahabad district was bifurcated in two parts namely Bhojpur and Rohtas.Buxar was a subdivision    of old Bhojpur district.In 1992,Buxar became a separate district and rest of Bhojpur district has now three sub-divisions≈Ara/Arrah Sadar,Jagdishpur and Piro.Ara/Arrah town is the headquarters of the district and also its principal town.
-
-      <img src="i.a.s_emblem_flag_cross_india_flag.png" alt="I.A.S Emblem Flag Cross India Flag" class="corner-img left">
-      <img src="i.p.s_emblem_flag_cross_india_flag.png" alt="I.P.S Emblem Flag Cross India Flag" class="corner-img right">
+        The present Bhojpur came into existence in 1972. Earlier this district was part of old Sahabad district...
+      </p>
+      <img src="i.a.s_emblem_flag_cross_india_flag.png" class="corner-img left">
+      <img src="i.p.s_emblem_flag_cross_india_flag.png" class="corner-img right">
     </div>
-
     
-
-    <!-- Important Links -->
+    <!-- Links -->
     <div class="links">
       <div class="section-title">Important Links</div>
       <ul>
-        <li class="highlight">Restricted Plot Ara Bhojpur, <a href="#" class="link-blue">Click Here</a></li>
-        <li><span class="highlight">BLO List</span> <a href="#" class="link-blue">Click Here</a></li>
-        <li><span class="highlight">Download Employee Information Form</span> and
-            <a href="#" class="link-blue">Office Performa - 1</a> <a href="#" class="link-blue">Employee Performa - 2</a>
-        </li>
+        <li class="highlight">Restricted Plot Ara Bhojpur, <a href="#">Click Here</a></li>
       </ul>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script>
-  (function(){
-    const slides = document.querySelector('.slides');
-    const imgs = slides.children;
-    let idx = 0;
-    if (imgs.length === 0) return;
-    setInterval(() => {
-      idx = (idx + 1) % imgs.length;
-      slides.style.transform = `translateX(-${idx * 100}%)`;
-    }, 3000);
-  })();
-
-  (function drawConnections(){
-    const svg = document.getElementById('connectors');
-    const center = document.getElementById('centerCircle');
-
-    function clearSvg(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
-
-    function makePath(x1,y1,x2,y2){
-      const dx = Math.abs(x2 - x1);
-      const sign = x2 < x1 ? -1 : 1;
-      const cpOffset = Math.min(160, Math.max(60, dx / 2));
-      const cp1x = x1 + sign * cpOffset * 0.6;
-      const cp1y = y1;
-      const cp2x = x2 - sign * cpOffset * 0.6;
-      const cp2y = y2;
-      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      path.setAttribute('d', `M ${x1} ${y1} C ${cp1x} ${cp1y} ${cp2x} ${cp2y} ${x2} ${y2}`);
-      path.setAttribute('fill','none');
-      path.setAttribute('stroke','#bfc9cf');
-      path.setAttribute('stroke-width','2');
-      path.setAttribute('stroke-linecap','round');
-      path.setAttribute('stroke-linejoin','round');
-      svg.appendChild(path);
-      const circ = document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circ.setAttribute('cx', x2);
-      circ.setAttribute('cy', y2);
-      circ.setAttribute('r', 4);
-      circ.setAttribute('fill', '#ffffff');
-      circ.setAttribute('stroke', '#bfc9cf');
-      circ.setAttribute('stroke-width','2');
-      svg.appendChild(circ);
-      const circ2 = document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circ2.setAttribute('cx', x1);
-      circ2.setAttribute('cy', y1);
-      circ2.setAttribute('r', 4);
-      circ2.setAttribute('fill', '#ffffff');
-      circ2.setAttribute('stroke', '#bfc9cf');
-      circ2.setAttribute('stroke-width','2');
-      svg.appendChild(circ2);
-    }
-
-    function update(){
-      clearSvg();
-      const rect = svg.getBoundingClientRect();
-      const cRect = center.getBoundingClientRect();
-      const baseX = cRect.left + cRect.width/2 - rect.left;
-      const baseY = cRect.top + cRect.height/2 - rect.top;
-      const nodes = Array.from(document.querySelectorAll('.node'));
-      nodes.forEach(node => {
-        const nRect = node.getBoundingClientRect();
-        const nx = nRect.left + nRect.width/2 - rect.left;
-        const ny = nRect.top + nRect.height/2 - rect.top;
-        makePath(baseX, baseY, nx, ny);
-      });
-    }
-
-    window.addEventListener('load', update);
-    window.addEventListener('resize', update);
-    setTimeout(update, 500);
-    setTimeout(update, 1000);
-  })();
-  </script>
 </body>
 </html>
