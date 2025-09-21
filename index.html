@@ -33,8 +33,46 @@
 
   .about-district {
     position: relative;
-    padding-bottom: 100px;
+    padding-bottom: 160px;
   }
+
+.corner-img {
+  position: absolute;
+  bottom: 0;
+  width: 90px;
+  height: auto;
+  opacity: 0.95;
+  pointer-events: none;
+}
+.corner-img.left { left: 0; }
+.corner-img.right { right: 0; }
+
+.corner-card {
+  position: absolute;
+  bottom: -110px;
+  width: 120px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 8px;
+  text-align: center;
+}
+
+.corner-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.corner-card p {
+  font-size: 12px;
+  margin: 6px 0 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.corner-card.left { left: 0; }
+.corner-card.right { right: 0; }
 
   .about-district .small-text {
     font-size: 7px;
@@ -104,6 +142,16 @@
       <img src="i.a.s_emblem_flag_cross_india_flag.png" class="corner-img left" alt="IAS Emblem" />
       <img src="i.p.s_emblem_flag_cross_india_flag.png" class="corner-img right" alt="IPS Emblem" />
     </div>
+
+<div class="corner-card left">
+    <img src="i.a.s_photo.jpg" alt="I.A.S Photo">
+    <p>Left Card</p>
+  </div>
+  <div class="corner-card right">
+    <img src="i.p.s_photo.jpg" alt="I.P.S Photo">
+    <p>Right Card</p>
+  </div>
+</div>
 
     <div class="links">
       <div class="section-title">Important Links</div>
